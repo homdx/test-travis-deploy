@@ -75,6 +75,8 @@ echo detect python
 python3 --version
 cygcheck -c
 echo detect pip version
+wget https://bootstrap.pypa.io/get-pip.py
+python3 get-pip.py
 python3.6 -m pip --version
 echo update pip3
 python3.6 -m pip install pip --upgrade
