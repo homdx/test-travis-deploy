@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/homdx/test-travis-deploy.svg?branch=master)](https://travis-ci.org/homdx/test-travis-deploy/)
 
-Builder windows botan
+Prepare for Builder windows npm, meson, ninja
 
-* [x]  botan
-* [x]  cmocka
+* [ ]  re2c
+* [ ]  ninja
+* [x]  meson
+* [ ] npm

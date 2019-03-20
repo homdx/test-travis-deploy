@@ -75,6 +75,9 @@ echo detect python
 python3 --version
 cygcheck -c
 echo detect pip version
+easy_install-3.6 pip
+pip --version || pip3 --version
+python3 -m pip --version
 wget https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py
 python3.6 -m pip --version
@@ -92,7 +95,7 @@ cd ..
 
 echo make re2c
 git clone --recursive https://github.com/skvadrik/re2c.git
-cd re2c/re2c
+cd re2c
 find . -name \*.m4|xargs dos2unix
 find . -name \*.ac|xargs dos2unix
 find . -name \*.am|xargs dos2unix
@@ -100,27 +103,39 @@ dos2unix autogen.sh
 ./autogen.sh
 echo configure
 ./configure --help
-./configure \
+./configure CXXFLAGS="-std=gnu++11" \
     && echo make && make
-echo install
+echo status of make command is $?    
+find . -name \*.exe
+echo now make install
 make install
+echo status of make install is $?
+ls -la /usr/local/bin
 echo done install
-cd ..
 cd ..
 
 echo make ninja
 git clone --recursive https://github.com/ninja-build/ninja
 cd ninja
+python3 configure.py --help
 python3 configure.py --verbose
 echo status of python3 configure $?
+#make
+#echo status of make $?
+#make install
+#echo status of make install $?
+#ninja --version
 wget https://github.com/ninja-build/ninja/releases/download/v1.9.0/ninja-win.zip
 unzip ninja-win.zip
-ls -la
-chmod +x ninja.exe
-echo start build with ninja
-./ninja.exe
-
-make
+cp -v ninja.exe /usr/local/bin
+ls -la *.exe
+chmod +x /usr/local/bin/ninja.exe
+echo listing usr local bin
+sleep 30
+ls -la /usr/local/bin
+#chmod +x ninja.exe
+#echo start build with ninja
+ninja.exe --version
+#make
 echo status of make ninja $?
 meson --version
-
