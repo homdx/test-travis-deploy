@@ -73,6 +73,7 @@ export PATH=/usr/local/lib:/usr/local/bin:$PATH
 echo new path $PATH
 echo detect python
 python3 --version
+cygcheck -c
 echo detect pip version
 python3 -m pip --version
 echo update pip3
