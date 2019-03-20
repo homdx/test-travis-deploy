@@ -75,11 +75,11 @@ echo detect python
 python3 --version
 cygcheck -c
 echo detect pip version
-python3 -m pip --version
+python3.6 -m pip --version
 echo update pip3
-python3 -m pip install pip --upgrade
+python3.6 -m pip install pip --upgrade
 echo show upadted pip3 version
-python3 -m pip --version
+python3.6 -m pip --version
 
 git clone --recursive https://github.com/mesonbuild/meson.git
 cd meson
