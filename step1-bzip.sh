@@ -74,11 +74,11 @@ echo new path $PATH
 echo detect python
 python3 --version
 echo detect pip version
-pip --version
+python3 -m pip --version
 echo update pip3
-pip install pip --upgrade
+python3 -m pip install pip --upgrade
 echo show upadted pip3 version
-pip --version
+python3 -m pip --version
 
 git clone --recursive https://github.com/mesonbuild/meson.git
 cd meson
