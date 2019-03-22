@@ -46,6 +46,9 @@ echo build deltachat-core with meson
 echo meson reconfigure
 mkdir build
 cd build
+meson --version
+pip3 install meson --upgrade
+meson --version
 meson --reconfigure
 echo status of meson reconfigure1 is $?
 meson --reconfigure ..
