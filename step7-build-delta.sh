@@ -3,7 +3,8 @@
 if [ $TRAVIS ]
 then
 echo "Travis run. Goto home build folder"
-export PATH=/usr/bin:/usr/local/bin:$PATH
+export PATH=/cygdrive/Program\ Files/nodejs:/usr/bin:/usr/local/bin:$PATH
+echo current path is $PATH
 cd $TRAVIS_BUILD_DIR
 else
 echo "No travis runing"
@@ -39,7 +40,11 @@ cp  -v ../package.json.039.patch .
 dos2unix package.json*
 echo patching 0.39 version for travis build
 patch -p0 <package.json.039.patch
-npm install || echo Error build
+ls -la
+node --version || echo error1 node version
+npm config set scripts-prepend-node-path true
+node --version || echo error2 node version
+npm install || echo Error build && echo Error build. Show log build && cat /cygdrive/c/Users/travis/AppData/Roaming/npm-cache/_logs/*.log
 
 cd deltachat-core
 echo build deltachat-core with meson
